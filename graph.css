@@ -1,0 +1,25 @@
+/* Add some basic styling for the tooltip */
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 8px 12px; /* Adjust padding */
+    font: 14px Arial, sans-serif; /* Adjust font size and family */
+    color: white; /* Text color */
+    background-color: rgba(0, 0, 0, 0.7); /* Tooltip background color */
+    border-radius: 4px;
+    pointer-events: none;
+    opacity: 0;
+}
+
+/* Add styling for the links */
+line.link {
+    stroke: #999; /* Color of the links */
+    stroke-width: 2; /* Thickness of the links */
+}
+
+/* Add styling for the link labels */
+text.link-label {
+    fill: #333; /* Color of the link labels */
+    font: 12px Arial, sans-serif; /* Font for the link labels */
+    pointer-events: none; /* Disable pointer events on the labels */
+}
