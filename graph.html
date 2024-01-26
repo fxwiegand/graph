@@ -13,7 +13,7 @@
 
         /* Style for each graph */
         .graph {
-            width: calc(50% - 20px); /* One-half width minus margin */
+            width: 100vw; /* One-half width minus margin */
             margin-right: 20px;
         }
     </style>
@@ -22,31 +22,13 @@
 
 <!-- Create SVG containers for the graphs -->
 <div class="graph-container">
-    <!-- First graph -->
-<!--    <div class="graph">-->
-<!--        <h2>Example 1</h2>-->
-<!--        <svg id="graph1" width="50%" height="1000px"></svg> &lt;!&ndash; Set width and height to 100% &ndash;&gt;-->
-<!--        <script src="https://d3js.org/d3.v5.min.js"></script>-->
-<!--        <script src="graph.js"></script>-->
-
-<!--        <script>-->
-<!--            // Example 1: Few nodes and edges-->
-<!--            var nodes1 = [{ id: 1, tooltip: "Node 1", color: "#d62728" }, { id: 2, tooltip: "Node 2", color: "black" }, { id: 3, tooltip: "Node 3", color: "#ff7f0e" }];-->
-<!--            var links1 = [{ source: 1, target: 2, label: "Edge 1" }, { source: 2, target: 3, label: "Edge 2" }];-->
-
-<!--            createForceDirectedGraph("#graph1", nodes1, links1);-->
-<!--        </script>-->
-<!--    </div>-->
-
-    <!-- Second graph -->
     <div class="graph">
-        <h2>Example 2</h2>
-        <svg id="graph2" width="2000px" height="2000px"></svg> <!-- Set width and height to 100% -->
+        <h2>Graph Test</h2>
+        <svg id="graph2" width="1500px" height="1500px"></svg>
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="graph.js"></script>
 
         <script>
-            // Example 2: More nodes and edges
             var nodes2 = [
                 { id: 1, tooltip: "Node A", color: "#1f77b4" },
                 { id: 2, tooltip: "Node B", color: "#ff7f0e" },
