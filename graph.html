@@ -29,33 +29,120 @@
         <script src="graph.js"></script>
 
         <script>
+            var variants = [
+                            {
+                                "variant_id": "rs12345",
+                                "variant_type": "SNP",
+                                "genomic_position": "1:100000",
+                                "reference_allele": "A",
+                                "alternate_allele": "G",
+                                "allele_frequency": 0.05,
+                                "zygosity": "heterozygous",
+                                "functional_impact": "nonsynonymous"
+                            },
+                            {
+                                "variant_id": "rs67890",
+                                "variant_type": "Insertion",
+                                "genomic_position": "2:200000",
+                                "reference_allele": "T",
+                                "alternate_allele": "TA",
+                                "allele_frequency": 0.02,
+                                "zygosity": "homozygous",
+                                "functional_impact": "intergenic"
+                            },
+                            {
+                                "variant_id": "rs13579",
+                                "variant_type": "Deletion",
+                                "genomic_position": "3:300000",
+                                "reference_allele": "GTC",
+                                "alternate_allele": "G",
+                                "allele_frequency": 0.1,
+                                "zygosity": "heterozygous",
+                                "functional_impact": "synonymous"
+                            },
+                            {
+                                "variant_id": "rs24680",
+                                "variant_type": "SNP",
+                                "genomic_position": "4:400000",
+                                "reference_allele": "C",
+                                "alternate_allele": "T",
+                                "allele_frequency": 0.08,
+                                "zygosity": "homozygous",
+                                "functional_impact": "nonsynonymous"
+                            },
+                            {
+                                "variant_id": "rs11111",
+                                "variant_type": "Duplication",
+                                "genomic_position": "5:500000",
+                                "reference_allele": "AGT",
+                                "alternate_allele": "AGTAGT",
+                                "allele_frequency": 0.03,
+                                "zygosity": "homozygous",
+                                "functional_impact": "intergenic"
+                            },
+                            {
+                                "variant_id": "rs22222",
+                                "variant_type": "SNP",
+                                "genomic_position": "6:600000",
+                                "reference_allele": "G",
+                                "alternate_allele": "A",
+                                "allele_frequency": 0.12,
+                                "zygosity": "heterozygous",
+                                "functional_impact": "nonsynonymous"
+                            },
+                            {
+                                "variant_id": "rs33333",
+                                "variant_type": "SNP",
+                                "genomic_position": "7:700000",
+                                "reference_allele": "T",
+                                "alternate_allele": "C",
+                                "allele_frequency": 0.05,
+                                "zygosity": "homozygous",
+                                "functional_impact": "synonymous"
+                            },
+                            {
+                                "variant_id": "rs44444",
+                                "variant_type": "Insertion",
+                                "genomic_position": "8:800000",
+                                "reference_allele": "C",
+                                "alternate_allele": "CG",
+                                "allele_frequency": 0.01,
+                                "zygosity": "heterozygous",
+                                "functional_impact": "intergenic"
+                            }
+                        ];
+
+
             var nodes2 = [
-                { id: 1, tooltip: "Node A", color: "#1f77b4" },
-                { id: 2, tooltip: "Node B", color: "#ff7f0e" },
-                { id: 3, tooltip: "Node C", color: "black" },
-                { id: 4, tooltip: "Node D", color: "#d62728" },
-                { id: 5, tooltip: "Node E", color: "black" },
-                { id: 6, tooltip: "Node F", color: "#2ca02c" },
-                { id: 7, tooltip: "Node G", color: "#9467bd" },
-                { id: 8, tooltip: "Node H", color: "#8c564b" },
-                { id: 9, tooltip: "Node I", color: "#e377c2" },
-                { id: 10, tooltip: "Node J", color: "#7f7f7f" },
+                { id: 1, tooltip: variants[0], color: "#1f77b4", size: 15 },
+                { id: 2, tooltip: variants[1], color: "#ff7f0e", size: 15 },
+                { id: 3, tooltip: variants[2], color: "black", size: 15 },
+                { id: 4, tooltip: variants[3], color: "#d62728", size: 15 },
+                { id: 5, tooltip: variants[4], color: "black", size: 15 },
+                { id: 6, tooltip: variants[5], color: "#d62728", size: 15 },
+                { id: 7, tooltip: variants[6], color: "#1f77b4", size: 15 },
+                { id: 8, tooltip: variants[7], color: "#1f77b4", size: 15 },
+                { id: 9, tooltip: variants[8], color: "#d62728", size: 15 },
+                { id: 10, tooltip: variants[9], color: "#ff7f0e", size: 15 }
             ];
+            function generateLabel() {
+                return Math.floor(Math.random() * 100) + "%";
+            }
             var links2 = [
-                { source: 1, target: 2, label: "Edge X" },
-                { source: 1, target: 3, label: "Edge Y" },
-                { source: 2, target: 4, label: "Edge Z" },
-                { source: 2, target: 5, label: "Edge W" },
-                { source: 3, target: 5, label: "Edge Q" },
-                { source: 4, target: 5, label: "Edge V" },
-                { source: 6, target: 7, label: "Edge K" },
-                { source: 6, target: 8, label: "Edge L" },
-                { source: 6, target: 9, label: "Edge M" },
-                { source: 7, target: 8, label: "Edge N" },
-                { source: 7, target: 9, label: "Edge O" },
-                { source: 8, target: 9, label: "Edge P" },
-                { source: 9, target: 10, label: "Edge R" },
-                { source: 9, target: 3, label: "Edge A" },
+                { source: 1, target: 2, label: generateLabel() },
+                { source: 1, target: 3, label: generateLabel()  },
+                { source: 2, target: 4, label: generateLabel()  },
+                { source: 2, target: 5, label: generateLabel()  },
+                { source: 3, target: 5, label: generateLabel()  },
+                { source: 4, target: 5, label: generateLabel()  },
+                { source: 6, target: 7, label: generateLabel()  },
+                { source: 6, target: 8, label: generateLabel()  },
+                { source: 6, target: 9, label: generateLabel()  },
+                { source: 7, target: 8, label: generateLabel() },
+                { source: 7, target: 9, label: generateLabel()  },
+                { source: 8, target: 9, label: generateLabel()  },
+                { source: 9, target: 10, label: generateLabel()  },
+                { source: 9, target: 3, label: generateLabel()  },
             ];
 
             createForceDirectedGraph("#graph2", nodes2, links2);

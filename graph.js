@@ -24,7 +24,7 @@ function createForceDirectedGraph(container, nodes, links) {
     var node = svg.selectAll("circle")
         .data(nodes)
         .enter().append("circle")
-        .attr("r", 15)
+        .attr("r", function(d) { return d.size; })
         .style("fill", function(d) { return d.color; })
         .on("mouseover", handleMouseOver)
         .on("mouseout", handleMouseOut)
@@ -36,9 +36,17 @@ function createForceDirectedGraph(container, nodes, links) {
     var tooltip = d3.select("body").append("div")
         .attr("class", "tooltip")
         .style("opacity", 0);
+    
+    function formatTooltip(tooltip) {
+        let result = "";
+        Object.keys(tooltip).forEach(function(key) {
+            result += key + ": " + tooltip[key] + "<br>";
+        }); 
+        return result;
+    }
 
     function handleMouseOver(d) {
-        tooltip.html("Node ID: " + d.id + "<br>" + d.tooltip)
+        tooltip.html(formatTooltip(d.tooltip))
             .style("left", (d3.event.pageX + 10) + "px")
             .style("top", (d3.event.pageY + 10) + "px")
             .style("opacity", 1);
